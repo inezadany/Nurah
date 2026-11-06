@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Nurah — my favorite everything</title>
+  <meta name="description" content="A little corner of the internet built for Nurah: moments, reasons, a love letter, and a place to write back." />
+  <meta name="theme-color" content="#160b12" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta property="og:title" content="For Nurah — my favorite everything" />
+  <meta property="og:description" content="A little corner of the internet built for one person. Come in, stay a while." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/her-smile.jpeg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Nurah — back to the top">N<span class="brand-dot">.</span></a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navMenu">
+        <a class="nav-link" href="#about">her</a>
+        <a class="nav-link" href="#moments">moments</a>
+        <a class="nav-link" href="#reasons">reasons</a>
+        <a class="nav-link" href="#letter">letter</a>
+        <a class="nav-link nav-link--mobile" href="#write">write back</a>
+      </div>
+
+      <a class="nav-cta" href="#write">write back <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ───────────────────────── HERO ───────────────────────── -->
+    <section class="hero" id="home">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <canvas class="petal-canvas" id="petalCanvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow">a little corner of the internet, built for one person</p>
+
+          <h1>
+            For <em>Nurah</em>,
+            <span class="hero-script">my favorite everything.</span>
+          </h1>
+
+          <p class="hero-lede">
+            You are my favorite person, my safest place, and the best plot twist of my life.
+            I built you this little world so you could see yourself the way I do — in every light,
+            in every version, in every ordinary day.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#letter" data-heart-burst>
+              open my letter
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#moments">wander through us</a>
+          </div>
+
+          <p class="hero-meta">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            made with 100% love, a little CSS, and zero chill
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-orbit" aria-hidden="true"></div>
+
+          <figure class="hero-photo" data-tilt>
+            <img
+              src="assets/images/her-smile.jpeg"
+              width="720" height="1280"
+              alt="Nurah in a white cap and polka-dot sweatshirt, laughing with a peace sign"
+              fetchpriority="high" decoding="async" />
+            <figcaption>my favorite view</figcaption>
+            <span class="hero-badge">my whole heart</span>
+          </figure>
+
+          <figure class="polaroid polaroid--a">
+            <img src="assets/images/her-stripes.jpeg" width="720" height="1280" alt="Nurah in a striped sweater showing off her rings" loading="lazy" decoding="async" />
+            <figcaption>the way you look at me</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--b">
+            <img src="assets/images/her-city.jpeg" width="809" height="1280" alt="Black and white photo of Nurah in a graphic sweatshirt against a city skyline" loading="lazy" decoding="async" />
+            <figcaption>even in black &amp; white</figcaption>
+          </figure>
+
+          <div class="sticker" aria-hidden="true">
+            <span>100%</span>
+            <strong>yours</strong>
+          </div>
+
+          <svg class="sparkle sparkle--one" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.2 9.8L24 12l-9.8 2.2L12 24l-2.2-9.8L0 12l9.8-2.2z"/></svg>
+          <svg class="sparkle sparkle--two" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.2 9.8L24 12l-9.8 2.2L12 24l-2.2-9.8L0 12l9.8-2.2z"/></svg>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to the next section">
+        <span>scroll for the good stuff</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ───────────────────────── MARQUEE ───────────────────────── -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>my favorite person</span><i>♥</i>
+          <span>my safest place</span><i>♥</i>
+          <span>my best plot twist</span><i>♥</i>
+          <span>my forever</span><i>♥</i>
+          <span>the love of my life</span><i>♥</i>
+        </div>
+        <div class="marquee-group">
+          <span>my favorite person</span><i>♥</i>
+          <span>my safest place</span><i>♥</i>
+          <span>my best plot twist</span><i>♥</i>
+          <span>my forever</span><i>♥</i>
+          <span>the love of my life</span><i>♥</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────── ABOUT ───────────────────────── -->
+    <section class="section section--light about" id="about">
+      <div class="container about-grid">
+        <div class="about-visual" data-reveal>
+          <div class="arch-frame">
+            <img src="assets/images/her-chef-smile.jpeg" width="720" height="1280" alt="Nurah in her chef's apron and hairnet, smiling at her phone" loading="lazy" decoding="async" />
+          </div>
+
+          <div class="mini-polaroid">
+            <img src="assets/images/her-chef-serious.jpeg" width="720" height="1280" alt="Nurah in her chef's apron, looking at her phone in the mirror" loading="lazy" decoding="async" />
+            <span>even here, breathtaking</span>
+          </div>
+
+          <p class="hand-note">my favorite person<br />in every room <span aria-hidden="true">↗</span></p>
+        </div>
+
+        <div class="about-copy">
+          <p class="eyebrow" data-reveal>chapter one · her</p>
+          <h2 data-reveal style="--delay:80ms">The girl who makes ordinary days feel like a <em>love song.</em></h2>
+
+          <p data-reveal style="--delay:140ms">
+            There are a million things I could say about you, but the truest one is this:
+            you make everything feel softer. You talk to me and somehow the day gets
+            better. You laugh, and I forget what I was worried about.
+          </p>
+          <p data-reveal style="--delay:200ms">
+            I love you in the loud and quiet moments, I love you in the short and long days,
+            I love the version of you that just needs to be held. Every version of you is
+            my favorite.
+          </p>
+          <p class="about-pull" data-reveal style="--delay:260ms">In a world of maybes, you are my definitely.</p>
+
+          <ul class="love-facts" data-reveal style="--delay:320ms">
+            <li><span class="fact-label">favorite notification</span><strong>Nurah</strong></li>
+            <li><span class="fact-label">best part of my day</span><strong>you. obviously.</strong></li>
+            <li><span class="fact-label">versions of you I love</span><strong>all of them</strong></li>
+            <li><span class="fact-label">current status</span><strong>hopelessly yours</strong></li>
+          </ul>
+
+          <p class="about-sign" data-reveal style="--delay:380ms">always yours, <span>I.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── MOMENTS ───────────────────────── -->
+    <section class="section moments" id="moments">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="eyebrow" data-reveal>chapter two · the little things</p>
+            <h2 data-reveal style="--delay:80ms">Proof that the camera loves you almost as much as <em>I do.</em></h2>
+          </div>
+          <p class="section-note" data-reveal style="--delay:140ms">tap a photo.<br />the captions are worth it <span aria-hidden="true">→</span></p>
+        </header>
+
+        <div class="gallery">
+          <button class="gallery-item" type="button" data-src="assets/images/her-smile.jpeg" data-caption="That laugh. That face. My whole world." data-alt="Nurah laughing in a white cap with a peace sign" data-reveal style="--delay:40ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">01</span>
+              <img src="assets/images/her-smile.jpeg" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">That laugh. That face. My whole world.</span>
+          </button>
+
+          <button class="gallery-item" type="button" data-src="assets/images/her-stripes.jpeg" data-caption="The rings, the stripes, the quiet confidence." data-alt="Nurah in a striped sweater showing her rings" data-reveal style="--delay:110ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">02</span>
+              <img src="assets/images/her-stripes.jpeg" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">The rings, the quiet confidence.</span>
+          </button>
+
+          <button class="gallery-item" type="button" data-src="assets/images/her-city.jpeg" data-caption="Black &amp; white, and still the warmest thing I know." data-alt="Black and white portrait of Nurah against a city skyline" data-reveal style="--delay:180ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">03</span>
+              <img src="assets/images/her-city.jpeg" width="809" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">Black &amp; white, and still the warmest thing I know.</span>
+          </button>
+
+          <button class="gallery-item" type="button" data-src="assets/images/her-collage.jpeg" data-caption="A whole collage of you — and I still can't pick a favorite." data-alt="A collage of four mirror selfies of Nurah in a white cap" data-reveal style="--delay:60ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">04</span>
+              <img src="assets/images/her-collage.jpeg" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">A whole collage of you — still can't pick a favorite.</span>
+          </button>
+
+          <button class="gallery-item" type="button" data-src="assets/images/her-chef-smile.jpeg" data-caption="Chef Nurah, stealing hearts on and off the clock." data-alt="Nurah in her chef's apron and hairnet, smiling" data-reveal style="--delay:130ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">05</span>
+              <img src="assets/images/her-chef-smile.jpeg" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">Chef Nurah, stealing hearts on and off the clock.</span>
+          </button>
+
+          <button class="gallery-item" type="button" data-src="assets/images/her-chef-serious.jpeg" data-caption="Soft light, soft smile, permanent home." data-alt="Nurah in her chef's apron, looking softly into the mirror" data-reveal style="--delay:200ms">
+            <span class="photo-frame">
+              <span class="photo-index" aria-hidden="true">06</span>
+              <img src="assets/images/her-chef-serious.jpeg" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+            </span>
+            <span class="photo-caption">Soft light, soft smile, permanent home.</span>
+          </button>
+        </div>
+
+        <p class="gallery-footnote" data-reveal>And somehow, these still don't do you justice.</p>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── REASONS ───────────────────────── -->
+    <section class="section section--light reasons" id="reasons">
+      <div class="container">
+        <header class="section-head section-head--reasons">
+          <div>
+            <p class="eyebrow" data-reveal>chapter three · reasons</p>
+            <h2 data-reveal style="--delay:80ms">In case you ever forget, here's a whole deck of <em>why.</em></h2>
+          </div>
+          <p class="section-note" data-reveal style="--delay:140ms">draw one.<br />then another. unlimited turns.</p>
+        </header>
+
+        <div class="reasons-grid">
+          <div class="reason-deck" data-reveal>
+            <div class="deck-top">
+              <span class="deck-count">reason <span id="reasonIndex">01</span> <span aria-hidden="true">/ ∞</span></span>
+              <span class="deck-tag">shuffled by heart</span>
+            </div>
+
+            <div class="reason-card" id="reasonCard" data-tilt>
+              <span class="reason-quote" aria-hidden="true">“</span>
+              <p id="reasonText">The way your whole face gets involved when you smile.</p>
+              <span class="reason-foot">— one of approximately a million</span>
+            </div>
+
+            <button class="btn btn-dark" id="nextReason" type="button" data-heart-burst>
+              draw another reason
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 10-2.34 5.66M20 4v7h-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <aside class="love-meter" data-reveal style="--delay:120ms">
+            <p class="eyebrow">a tiny experiment</p>
+            <h3>How much do I love you?</h3>
+            <p class="meter-copy">Hold the heart. Let's find out.</p>
+
+            <button class="love-hold" id="loveHold" type="button" aria-label="Hold the heart to fill the love meter">
+              <span class="love-hold-inner">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.4-9.2C1.2 8.2 3.2 4.8 6.6 4.8c2 0 3.4 1.1 4.4 2.5h2c1-1.4 2.4-2.5 4.4-2.5 3.4 0 5.4 3.4 4 7C19.5 16.3 12 21 12 21z"/></svg>
+                <span class="hold-word" id="holdWord">hold</span>
+              </span>
+            </button>
+
+            <div class="meter-track" aria-hidden="true"><span id="loveBar"></span></div>
+            <p class="love-readout" id="loveReadout" aria-live="polite">0% — go on, try me.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── LETTER ───────────────────────── -->
+    <section class="section letter" id="letter">
+      <div class="container">
+        <header class="letter-head">
+          <p class="eyebrow" data-reveal>chapter four · the letter</p>
+          <h2 data-reveal style="--delay:80ms">Some things are too big for a <em>text.</em></h2>
+          <p class="letter-sub" data-reveal style="--delay:140ms">So I wrote them down, folded them into this little envelope, and left it here for you.</p>
+        </header>
+
+        <div class="envelope-stage" data-reveal style="--delay:180ms">
+          <button class="envelope" id="openLetter" type="button" aria-haspopup="dialog" aria-controls="letterDialog" aria-expanded="false" aria-label="Open the letter">
+            <span class="envelope-back" aria-hidden="true"></span>
+            <span class="envelope-letter" aria-hidden="true"><span>my Nurah…</span></span>
+            <span class="envelope-front" aria-hidden="true"></span>
+            <span class="envelope-flap" aria-hidden="true"></span>
+            <span class="envelope-to" aria-hidden="true">for Nurah <i>with all my love</i></span>
+            <span class="wax-seal" aria-hidden="true">N</span>
+            <span class="envelope-hint">click to open</span>
+          </button>
+        </div>
+
+        <div class="promises">
+          <p class="eyebrow" data-reveal>and a few promises to go with it</p>
+          <div class="promise-grid">
+            <article class="promise" data-reveal style="--delay:60ms">
+              <span class="promise-number" aria-hidden="true">01</span>
+              <h3>I'll listen</h3>
+              <p>Not just wait for my turn. The real kind — where you feel heard, even when the words are hard.</p>
+            </article>
+            <article class="promise" data-reveal style="--delay:120ms">
+              <span class="promise-number" aria-hidden="true">02</span>
+              <h3>I'll show up</h3>
+              <p>Big days, boring Tuesdays, 2 a.m. worries. All of it. You won't have to wonder where I am.</p>
+            </article>
+            <article class="promise" data-reveal style="--delay:180ms">
+              <span class="promise-number" aria-hidden="true">03</span>
+              <h3>I'll choose you</h3>
+              <p>On the easy days and the ones that take work. Especially those. Every single time.</p>
+            </article>
+            <article class="promise" data-reveal style="--delay:240ms">
+              <span class="promise-number" aria-hidden="true">04</span>
+              <h3>I'll keep us laughing</h3>
+              <p>Even if it's at my own jokes. Especially then. Your smile is the whole point.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── WRITE BACK ───────────────────────── -->
+    <section class="section section--light write" id="write">
+      <div class="container write-grid">
+        <div class="write-copy">
+          <p class="eyebrow" data-reveal>chapter five · your turn</p>
+          <h2 data-reveal style="--delay:80ms">Tell me something I'll reread at <em>2 a.m.</em></h2>
+          <p data-reveal style="--delay:140ms">
+            Ask me anything. Tell me everything. Or just say hi. Your words land straight
+            in my inbox, and I promise I'll treat them like treasure.
+          </p>
+          <p class="write-note" data-reveal style="--delay:200ms">no pressure. even a heart emoji counts. ♥</p>
+        </div>
+
+        <form class="note-form" id="loveForm" data-reveal style="--delay:140ms" action="https://api.web3forms.com/submit" method="POST">
+          <div class="form-row">
+            <label class="field">
+              <span>your name</span>
+              <input type="text" name="name" id="senderName" autocomplete="name" placeholder="who's writing?" required maxlength="80" />
+            </label>
+            <!-- <label class="field">
+              <span>write back to <i>(optional)</i></span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="120" />
+            </label> -->
+          </div>
+
+          <fieldset class="mood-fieldset">
+            <legend>what's on your heart?</legend>
+            <div class="mood-chips">
+              <label class="chip"><input type="radio" name="mood" value="I love you too" /><span>I love you too</span></label>
+              <label class="chip"><input type="radio" name="mood" value="I miss you" /><span>I miss you</span></label>
+              <label class="chip"><input type="radio" name="mood" value="You're cheesy" /><span>You're cheesy</span></label>
+              <label class="chip"><input type="radio" name="mood" value="I'm smiling" /><span>I'm smiling</span></label>
+              <label class="chip"><input type="radio" name="mood" value="Tell me more" /><span>Tell me more</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field field--message">
+            <span>a little note for me</span>
+            <textarea name="message" id="message" rows="5" maxlength="1200" placeholder="No pressure. Even &quot;hi&quot; would make my day." required></textarea>
+          </label>
+
+          <div class="form-foot">
+            <span class="char-count" id="charCount">0 / 1200</span>
+            <button class="btn btn-primary" type="submit" id="sendBtn">
+              <span class="btn-label">send it to my heart</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-small">Private, just us. It lands directly in my inbox. 💌</p>
+
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        </form>
+
+        <div class="success-card" id="formSuccess" hidden>
+          <span class="success-heart" aria-hidden="true">♥</span>
+          <p class="eyebrow">delivered</p>
+          <h3>Your words are safe with me.</h3>
+          <p>I'll be thinking about this all day. Probably longer.</p>
+          <button class="btn btn-dark" type="button" id="writeAnother">write another</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <p class="footer-script">I love you, Nurah.</p>
+        <button class="footer-heart" id="secretHeart" type="button" aria-label="A little secret — tap five times">♥</button>
+        <p class="footer-hint">psst… tap the heart five times</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Built with too much love (and a little CSS) · <span id="year">2026</span></p>
+        <a href="#home">back to the top ↑</a>
+        <p class="footer-note">No matter the timeline, I'd find you.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ───────────────────────── LIGHTBOX ───────────────────────── -->
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo viewer">✕</button>
+      <img id="lightboxImg" alt="" />
+      <div class="lightbox-bar">
+        <p id="lightboxCaption"></p>
+        <div class="lightbox-nav">
+          <button type="button" id="prevPhoto" aria-label="Previous photo">←</button>
+          <span id="photoCount">1 / 6</span>
+          <button type="button" id="nextPhoto" aria-label="Next photo">→</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ───────────────────────── LETTER DIALOG ───────────────────────── -->
+  <dialog class="letter-dialog" id="letterDialog" aria-labelledby="letterTitle">
+    <div class="letter-shell">
+      <button class="letter-close" id="letterClose" type="button" aria-label="Close the letter">✕</button>
+      <div class="letter-paper" tabindex="-1">
+        <p class="letter-kicker">a letter I should have written sooner</p>
+        <h2 id="letterTitle">My Nurah,</h2>
+
+        <div class="letter-body">
+          <p>Your name means <strong>light.</strong> Your parents gave you a hint, and I'm sorry it took me this long to understand it.</p>
+          <p>In 2023 wambwiye ko unkunda. I still remember the courage that it took. Sinagusubije uko nagombaga gusubiza, gusa I was not in a good state to be into romantic relationships, and If i did accept that, nari kuba mbaye selfish cz you deserved better. So that's why navuze kuriya, and left you carrying it alone.</p>
+
+          <p class="letter-pull">I'm sorry I left you waiting.</p>
+
+          <p>Not the quick kind of sorry that wants to move on. Ndabizi ko kiriya gihe you deserved a right answer, and later I gave you silence.</p>
+          <p>Gusa ubu ibintu byarahindutse. I'm steadier, standing on my own two feet. I'm not asking you to save me or shelter me, Ndashaka ko this time mbikora they way I had to do it back then. I'm ready to love you with my whole heart, out loud, on purpose.</p>
+          <p>I'm not promising perfect. I'm promising present. And if you ever say those three words again, I won't leave them hanging.</p>
+          <p>You were the light the whole time. I'm sorry I kept my eyes closed.</p>
+        </div>
+
+        <p class="letter-sign">Yours — not just in words this time.<br /><span>Dany</span></p>
+        <p class="letter-ps">P.S. I built you a whole website. That's how serious I am. ♥</p>
+
+        <div class="letter-actions">
+          <button class="btn btn-dark" type="button" data-close-letter>keep this one</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ───────────────────────── SECRET DIALOG ───────────────────────── -->
+  <dialog class="secret-dialog" id="secretDialog" aria-labelledby="secretTitle">
+    <div class="secret-note">
+      <button class="secret-close" id="secretClose" type="button" aria-label="Close the secret">✕</button>
+      <p class="eyebrow">you found the secret</p>
+      <h2 id="secretTitle">I love you<br />in everything,<br />every timeline,<br />every version of forever.</h2>
+      <p class="secret-sign">ALWAYS.</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

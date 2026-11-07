@@ -12,6 +12,7 @@ A one-page love letter built with plain HTML, CSS and JavaScript. No build step,
 - **The letter** — a wax-sealed envelope that opens into a full love letter.
 - **Promises** — four things worth putting in writing.
 - **Write back** — a note form that sends to your inbox through Web3Forms.
+- **Passcode gate** — a private door before the page: enter `2026` to come in.
 - **Secret** — the footer heart has a surprise if she taps it five times.
 
 ## Files
@@ -25,7 +26,18 @@ assets/images/      ← the six photos, renamed semantically
 img1–img6.jpeg      ← originals (kept)
 ```
 
-## Activate the reply form (one step)
+## The passcode gate
+
+The page opens on a private screen. The code is **2026**.
+
+- Change it in `js/app.js`: `const PASSCODE = "2026";`
+- Once she enters it, the page stays unlocked for that browser session (`sessionStorage`), so a refresh won't ask again.
+- **Quiet notification:** when the correct code is entered, the page sends a background Web3Forms submission with the subject *“Nurah opened her site”* — date, time zone and device. Nothing appears on screen, so she won't know it was sent.
+- The gate is a convenience, not real security: the code lives in the JavaScript, so anyone who reads the source can find it.
+
+## Activate the reply form
+
+The access key is already set in `js/config.js`. If you ever need to replace it:
 
 1. Go to [web3forms.com](https://web3forms.com) and create an access key for **inezabyishimod@gmail.com** (the email must be verified once).
 2. Open `js/config.js`.
@@ -35,7 +47,7 @@ img1–img6.jpeg      ← originals (kept)
 web3formsAccessKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 ```
 
-That's it. Until the key is added, submitting the form opens an email draft to your address instead, so nothing gets lost.
+If the key is ever missing, submitting the form opens an email draft to your address instead, so nothing gets lost.
 
 > Web3Forms access keys are designed to be used in the browser — the key is not a secret password.
 
@@ -55,7 +67,7 @@ Because the form calls `https://api.web3forms.com`, deploying the site (Netlify 
 
 ## Easy customisations
 
-- **Her name / your name** — search for `Nurah` and `Ineza` in `index.html`.
+- **Her name / your name** — search for `Nurah` and `Dany` in `index.html`.
 - **The letter** — the whole letter lives in `index.html` inside `<div class="letter-body">`.
 - **Reasons** — edit the `reasons` array near the top of the reasons section in `js/app.js`.
 - **Captions** — each gallery button has `data-caption="..."` and `data-alt="..."`.
@@ -71,5 +83,3 @@ Because the form calls `https://api.web3forms.com`, deploying the site (Netlify 
 
 Made with too much love (and a little CSS).
 
-# Nurah
-ade16f9cc0dd54462ab2ffd3c53600c5106f7f9e

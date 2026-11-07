@@ -17,9 +17,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script>document.documentElement.classList.add("js");</script>
-  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+  <noscript><style>
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+    #gate { display: none !important; }
+    body.is-locked { overflow: auto !important; }
+    body.is-locked > * { visibility: visible !important; }
+  </style></noscript>
 </head>
-<body>
+<body class="is-locked">
+  <!-- ───────────────────────── PASSCODE GATE ───────────────────────── -->
+  <div class="gate" id="gate">
+    <div class="gate-card" id="gateCard">
+      <span class="gate-mark" aria-hidden="true">N.</span>
+      <p class="eyebrow">private · for one person</p>
+      <h1 class="gate-title">Only you get <em>in.</em></h1>
+      <p class="gate-sub">Four little digits, and this whole world is yours.</p>
+
+      <form class="gate-form" id="gateForm" novalidate>
+        <label class="sr-only" for="gateCode">Four-digit passcode</label>
+        <input class="gate-input" id="gateCode" name="code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="····" aria-describedby="gateError gateHint" />
+        <button class="btn btn-primary gate-btn" type="submit">unlock <span aria-hidden="true">♥</span></button>
+      </form>
+
+      <p class="gate-error" id="gateError" role="alert"></p>
+      <p class="gate-hint" id="gateHint">hint: this year — the one we finally get right.</p>
+    </div>
+  </div>
+  <script>
+    try {
+      if (sessionStorage.getItem("nurah-unlocked") === "1") {
+        document.body.classList.remove("is-locked");
+        document.getElementById("gate").hidden = true;
+      }
+    } catch (error) {}
+  </script>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
@@ -45,7 +77,7 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <!-- ───────────────────────── HERO ───────────────────────── -->
     <section class="hero" id="home">
       <div class="hero-glow" aria-hidden="true"></div>
@@ -360,17 +392,6 @@
         </div>
 
         <form class="note-form" id="loveForm" data-reveal style="--delay:140ms" action="https://api.web3forms.com/submit" method="POST">
-          <div class="form-row">
-            <label class="field">
-              <span>your name</span>
-              <input type="text" name="name" id="senderName" autocomplete="name" placeholder="who's writing?" required maxlength="80" />
-            </label>
-            <!-- <label class="field">
-              <span>write back to <i>(optional)</i></span>
-              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="120" />
-            </label> -->
-          </div>
-
           <fieldset class="mood-fieldset">
             <legend>what's on your heart?</legend>
             <div class="mood-chips">

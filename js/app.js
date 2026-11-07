@@ -21,6 +21,124 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  /* ── Passcode gate ─────────────────────────────────────────── */
+  const gate = $("#gate");
+  const gateForm = $("#gateForm");
+  const gateCode = $("#gateCode");
+  const gateError = $("#gateError");
+  const gateCard = $("#gateCard");
+  const main = $("#main");
+  const PASSCODE = "2026";
+  const UNLOCK_KEY = "nurah-unlocked";
+  const gateDelay = reduceMotion ? 0 : 700;
+
+  function isUnlocked() {
+    try {
+      return sessionStorage.getItem(UNLOCK_KEY) === "1";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function rememberUnlocked() {
+    try {
+      sessionStorage.setItem(UNLOCK_KEY, "1");
+    } catch (error) {
+      /* private mode — the gate will simply ask again next visit */
+    }
+  }
+
+  /* Tells Dany she came in. Fires quietly in the background: no UI,
+     no console output, nothing for her to notice. */
+  function notifyUnlock() {
+    const accessKey = String(CONFIG.web3formsAccessKey || "").trim();
+    if (!accessKey || !gate) return;
+
+    const now = new Date();
+    let zone = "";
+    try {
+      zone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    } catch (error) {
+      /* no time zone available */
+    }
+
+    const payload = {
+      access_key: accessKey,
+      subject: "Nurah opened her site 💗",
+      from_name: "Nurah's website",
+      name: "Nurah",
+      message: [
+        "She entered the passcode and the site opened.",
+        "",
+        `When: ${now.toLocaleString()}`,
+        zone ? `Time zone: ${zone}` : "",
+        `Device: ${navigator.userAgent}`
+      ]
+        .filter(Boolean)
+        .join("\n"),
+      botcheck: ""
+    };
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  function openSite({ notify = true } = {}) {
+    document.body.classList.remove("is-locked");
+    rememberUnlocked();
+
+    if (gate) {
+      gate.classList.add("is-leaving");
+      window.setTimeout(() => {
+        gate.hidden = true;
+        gate.classList.remove("is-leaving");
+      }, gateDelay);
+    }
+
+    if (main) main.focus({ preventScroll: true });
+    if (notify) notifyUnlock();
+  }
+
+  if (gate && !isUnlocked()) {
+    if (gateCode) {
+      window.setTimeout(() => gateCode.focus({ preventScroll: true }), 400);
+      gateCode.addEventListener("input", () => {
+        gateCode.value = gateCode.value.replace(/\D/g, "").slice(0, 4);
+      });
+    }
+
+    if (gateForm) {
+      gateForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const code = String((gateCode && gateCode.value) || "").replace(/\D/g, "");
+
+        if (code === PASSCODE) {
+          if (gateError) gateError.textContent = "";
+          openSite();
+          return;
+        }
+
+        if (gateError) gateError.textContent = "Not quite. Try again, my love.";
+        if (gateCard) {
+          gateCard.classList.remove("is-wrong");
+          void gateCard.offsetWidth;
+          gateCard.classList.add("is-wrong");
+        }
+        if (gateCode) gateCode.select();
+      });
+    }
+  } else if (gate) {
+    gate.hidden = true;
+    document.body.classList.remove("is-locked");
+  }
+
   /* ── Footer year ───────────────────────────────────────────── */
   const year = $("#year");
   if (year) year.textContent = new Date().getFullYear();
@@ -782,7 +900,6 @@
       }
 
       const data = new FormData(form);
-      const name = String(data.get("name") || "").trim();
       const email = String(data.get("email") || "").trim();
       const mood = String(data.get("mood") || "").trim();
       const message = String(data.get("message") || "").trim();
@@ -793,9 +910,9 @@
         return;
       }
 
-      if (!name || !message) {
+      if (!message) {
         if (formStatus) {
-          formStatus.textContent = "I need a name and a few words first. ♥";
+          formStatus.textContent = "I need a few words first. ♥";
           formStatus.classList.add("is-error");
         }
         return;
@@ -803,7 +920,7 @@
 
       const accessKey = String(CONFIG.web3formsAccessKey || "").trim();
       const hasKey = accessKey.length >= 20 && !/paste|your[-_ ]?key/i.test(accessKey);
-      const mailto = buildMailto(name, email, mood, message);
+      const mailto = buildMailto("Nurah", email, mood, message);
 
       if (!hasKey) {
         if (formStatus) {
@@ -813,12 +930,12 @@
         return;
       }
 
-      const subject = `A love note from ${name} 💌`;
+      const subject = "A love note from Nurah 💌";
       const payload = {
         access_key: accessKey,
         subject,
-        from_name: name,
-        name,
+        from_name: "Nurah",
+        name: "Nurah",
         mood: mood || "No mood picked",
         message,
         botcheck: ""
@@ -869,8 +986,7 @@
       form.hidden = false;
       form.reset();
       updateCharCount();
-      const nameField = $("#senderName");
-      if (nameField) nameField.focus({ preventScroll: true });
+      if (messageField) messageField.focus({ preventScroll: true });
     });
   }
 

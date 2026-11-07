@@ -2419,6 +2419,195 @@ em { font-style: italic; }
   will-change: transform, opacity;
 }
 
+/* ── 15.5 Passcode gate ──────────────────────────────────────── */
+body.is-locked { overflow: hidden; }
+
+body.is-locked > :not(#gate):not(script):not(style) {
+  visibility: hidden;
+}
+
+body.is-locked .hero-copy > *,
+body.is-locked .hero-visual {
+  animation-play-state: paused;
+}
+
+main:focus { outline: none; }
+
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 5vw, 2.5rem);
+  overflow-y: auto;
+  background:
+    radial-gradient(120% 85% at 50% -10%, rgba(207, 70, 109, 0.28), transparent 62%),
+    radial-gradient(80% 60% at 88% 105%, rgba(233, 195, 154, 0.14), transparent 68%),
+    linear-gradient(165deg, #1e0d18 0%, #120810 55%, #0c060a 100%);
+}
+
+.gate[hidden] { display: none; }
+
+.gate::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 178, 196, 0.55) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 78% 34%, rgba(255, 178, 196, 0.4) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 62% 78%, rgba(233, 195, 154, 0.5) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 28% 82%, rgba(255, 178, 196, 0.35) 0 1.5px, transparent 2px);
+}
+
+.gate.is-leaving {
+  animation: gateOut 0.7s var(--ease) forwards;
+}
+
+@keyframes gateOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.gate-card {
+  position: relative;
+  width: min(29rem, 100%);
+  padding: clamp(2.3rem, 6vw, 3.3rem) clamp(1.4rem, 5vw, 2.7rem);
+  text-align: center;
+  border: 1px solid rgba(233, 195, 154, 0.3);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 122, 156, 0.12), transparent 58%),
+    linear-gradient(165deg, rgba(45, 20, 34, 0.97), rgba(22, 11, 18, 0.99));
+  box-shadow:
+    0 40px 110px -30px rgba(0, 0, 0, 0.85),
+    inset 0 0 80px rgba(233, 195, 154, 0.05);
+}
+
+.gate-card::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(233, 195, 154, 0.14);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.gate-card.is-wrong {
+  animation: gateShake 0.45s var(--ease-soft);
+}
+
+@keyframes gateShake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+.gate-mark {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  margin: 0 auto 1.3rem;
+  border: 1px solid rgba(233, 195, 154, 0.55);
+  border-radius: 50%;
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 1.85rem;
+  line-height: 1;
+  box-shadow: 0 0 0 6px rgba(233, 195, 154, 0.05);
+}
+
+.gate .eyebrow {
+  justify-content: center;
+  font-size: 0.6rem;
+}
+
+.gate-title {
+  margin: 1.1rem 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 6vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.04;
+  color: var(--cream);
+}
+
+.gate-title em {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.18em;
+  color: var(--rose);
+}
+
+.gate-sub {
+  max-width: 20rem;
+  margin: 0 auto 1.8rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.gate-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.gate-input {
+  width: 100%;
+  height: 4rem;
+  padding: 0 0.55em 0 1em;
+  border: 1px solid rgba(233, 195, 154, 0.34);
+  border-radius: 5px;
+  background: rgba(8, 4, 7, 0.55);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  letter-spacing: 0.8em;
+  text-align: center;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gate-input::placeholder {
+  color: rgba(233, 195, 154, 0.3);
+  letter-spacing: 0.45em;
+}
+
+.gate-input:focus {
+  outline: none;
+  border-color: var(--rose);
+  box-shadow: 0 0 0 4px rgba(255, 122, 156, 0.14);
+}
+
+.gate-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.gate-error {
+  min-height: 1.3em;
+  margin: 0.9rem 0 0;
+  color: var(--rose-soft);
+  font-size: 0.82rem;
+}
+
+.gate-hint {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(196, 170, 180, 0.6);
+}
+
+@media (max-width: 520px) {
+  .gate-card { padding: 2.2rem 1.3rem; }
+  .gate-input {
+    height: 3.6rem;
+    padding-left: 0.6em;
+    letter-spacing: 0.55em;
+  }
+}
+
 /* ── 16. Reveal & motion ─────────────────────────────────────── */
 .js [data-reveal] {
   opacity: 0;
